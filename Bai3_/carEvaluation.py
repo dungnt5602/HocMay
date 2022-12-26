@@ -2,7 +2,7 @@ import pandas
 import time
 from Bai3_.decisionTree import trainTestSplit, buildDecisionTree, decisionTreePredictions, calculateAccuracy
 
-dataFrame = pandas.read_csv("../decision-tree-from-scratch-main/dataset_files/car_evaluation.csv")
+dataFrame = pandas.read_csv("car_evaluation.csv")
 
 buyingMapping = {"low": 1, "med": 2, "high": 3, "vhigh": 4}
 dataFrame["buying"] = dataFrame["buying"].map(buyingMapping)
