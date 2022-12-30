@@ -38,6 +38,5 @@ while accuracyTrain < 100:
     accuracyTrain = calculateAccuracy(decisionTreeTrainResults, dataFrameTrain.iloc[:, -1]) * 100
     print("maxDepth = {}: ".format(i), end = "")
     print("accTest = {0:.2f}%, ".format(accuracyTest), end = "")
-    print("accTrain = {0:.2f}%, ".format(accuracyTrain), end = "")
-    print("buildTime = {0:.2f}s".format(buildingTime), end = "\n")
+    print("accTrain = {0:.2f}%, ".format(accuracyTrain), end = "\n")
     i += 1
