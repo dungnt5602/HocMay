@@ -29,9 +29,7 @@ print("Decision Tree - Car Evaluation Dataset")
 i = 1
 accuracyTrain = 0
 while accuracyTrain < 100:
-    startTime = time.time()
     decisionTree = buildDecisionTree(dataFrameTrain, maxDepth = i)
-    buildingTime = time.time() - startTime
     decisionTreeTestResults = decisionTreePredictions(dataFrameTest, decisionTree)
     accuracyTest = calculateAccuracy(decisionTreeTestResults, dataFrameTest.iloc[:, -1]) * 100
     decisionTreeTrainResults = decisionTreePredictions(dataFrameTrain, decisionTree)

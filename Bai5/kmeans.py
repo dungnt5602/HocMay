@@ -5,12 +5,21 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
 data = pd.read_csv('iris.data.csv', names=names)
-dt_Train = data[['sepal-length', 'sepal-width', 'petal-length', 'petal-width']]
-dt_Test = data[['class']]
-X_train, X_test, y_train,  y_test = train_test_split(dt_Train, dt_Test, test_size=0.3, shuffle=False) # chia du lieu test va train theo ty le 3:7
 
-kmeans5 = KMeans(n_clusters=5)
-y_kmeans5 = kmeans5.fit_predict(X_train)
+data['Class'] = pd.Categorical(data["Class"])
+data["Class"] = data["Class"].cat.codes
+X = data.values[:, 0:4]
+y = data.values[:, 4]
+from sklearn.cluster import KMeans
 
+kmeans = KMeans(n_clusters=3)
+kmeans = kmeans.fit(X)
+labels = kmeans.predict(X)
+
+from sklearn.metrics import classification_report
+
+target_names = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+
+print(classification_report(data['Class'],kmeans.labels_,target_names=target_names))

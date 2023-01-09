@@ -9,12 +9,11 @@ from sklearn.model_selection import train_test_split
 from scipy.spatial import distance
 
 # Load dataset
-url = "iris.data.csv"
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+url = "iris.data2.csv"
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width']
 dataset = read_csv(url, names=names)
 
-# Split-out validation dataset (80% training data, 20% test data)
-x_train, x_test = train_test_split(dataset, test_size=0.2)
+x_train, x_test = train_test_split(dataset, test_size=0.3)
 
 #Step 1: Distance Functions
 def euclideanDistance(instance1, instance2, features):
